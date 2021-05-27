@@ -1,19 +1,42 @@
 <template>
-  <button @click="$emit('click')">
-    <svg v-if="icon" :class="{ [`t-icon-${icon}`]: icon }" aria-hidden="true">
-      <use :xlink:href="`#icon-${icon}`" />
-    </svg>
-    <span><slot /></span>
+  <button class="button" :class="{ [`icon-${iconPosition}`]: iconPosition }" @click="$emit('click')">
+    <span
+      v-if="iconPosition"
+      class="button-icon"
+    >+</span>
+    <span class="button-text"><slot /></span>
   </button>
 </template>
 <script>
 export default {
   name: 'Button',
   props: {
-    icon: {
+    iconPosition: {
       type: String,
-      default: ''
+      default: 'left'
     }
   }
 }
 </script>
+<style lang="scss" scoped>
+.button {
+  display: flex;
+  align-items: center;
+}
+.icon-left {
+  & > .button-icon {
+    order: 1;
+  }
+  & > .button-text {
+    order: 2;
+  }
+}
+.icon-right {
+  & > .button-icon {
+    order: 2;
+  }
+  & > .button-text {
+    order: 1;
+  }
+}
+</style>

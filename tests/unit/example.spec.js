@@ -20,14 +20,4 @@ describe('Example Test', () => {
     })
     expect(wrapper.text()).to.include(msg)
   })
-
-  it('测试 Button 触发 Click 事件', () => {
-    const wrapper = mount(Button)
-    
-    const vm = wrapper.vm
-    const callback = sinon.fake();
-    vm.$on('click', callback)
-    vm.$el.click()
-    expect(callback).to.have.been.called
-  })
 })

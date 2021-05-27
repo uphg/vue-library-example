@@ -43,3 +43,9 @@ test('triggers a click', async () => {
 ## `mount()` 与 `shallowMount()` 的区别
 
 mount 会挂载当前组件与它的子组件，但 shallowMount 只会加载当前组件，与它关联的子组件可能是残缺的
+
+添加 karma 报错
+
+```sh
+TypeError: Cannot read property 'split' of undefined
+```
